@@ -64,7 +64,7 @@ jobs:
           # shared-icons is public, so the default token can read its releases.
           # A tag without a GitHub release just yields empty notes.
           NOTES=$(gh release view "$TAG" \
-            --repo music-assistant/shared-icons --json body --jq '.body' 2>/dev/null || true)
+            --repo pierosavi/ma-shared-icons --json body --jq '.body' 2>/dev/null || true)
           # Random delimiter so a note line reading "EOF" cannot cut the output short.
           DELIM="$(openssl rand -hex 16)"
           {
@@ -90,6 +90,6 @@ jobs:
           labels: |
             dependencies
           body: |
-            Sync vendored icons to shared-icons [${{ inputs.tag }}](https://github.com/music-assistant/shared-icons/releases/tag/${{ inputs.tag }}).
+            Sync vendored icons to shared-icons [${{ inputs.tag }}](https://github.com/pierosavi/ma-shared-icons/releases/tag/${{ inputs.tag }}).
 
             ${{ steps.release_notes.outputs.notes }}
