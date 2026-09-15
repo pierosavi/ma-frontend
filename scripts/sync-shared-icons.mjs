@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/** Sync a tagged music-assistant/shared-icons release into the frontend. */
+/** Sync a tagged pierosavi/ma-shared-icons release into the frontend. */
 import {
   cp,
   mkdtemp,
@@ -69,7 +69,7 @@ try {
       sourceLockPath,
       await prettier.format(
         `${JSON.stringify(
-          { repository: "music-assistant/shared-icons", tag, commit },
+          { repository: "pierosavi/ma-shared-icons", tag, commit },
           null,
           2,
         )}\n`,
@@ -149,7 +149,7 @@ async function getSource() {
       "1",
       "--branch",
       resolvedTag,
-      "https://github.com/music-assistant/shared-icons.git",
+      "https://github.com/pierosavi/ma-shared-icons.git",
       temporaryDir,
     ]);
     const { stdout } = await execFileAsync("git", [
